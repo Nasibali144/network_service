@@ -15,6 +15,7 @@ class NetworkService {
 
   // APIS
   static const String apiPosts = "/posts";
+  static const String apiPost = "/posts/"; // {id}
   static const String apiAlbums = "/albums";
   static const String apiAlbum = "/albums/"; // {id}
 

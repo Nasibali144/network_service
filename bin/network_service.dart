@@ -11,8 +11,14 @@ void main() async {
   // List<Album> albums = NetworkService.parseAlbumList(body);
   // print(albums);
   Post post = Post(id: 12, userId: 78, title: "title", body: "body");
-  String response = await NetworkService.POST(NetworkService.apiPosts, NetworkService.headers, post.toJson());
-  print(response);
+  // String response = await NetworkService.POST(NetworkService.apiPosts, NetworkService.headers, post.toJson());
+  String response1 = await NetworkService.GET(NetworkService.apiPost + post.id.toString(), NetworkService.headers);
+  print("get: $response1");
+  // String response = await NetworkService.PUT(NetworkService.apiPost + post.id.toString(), NetworkService.headers, post.toJson());
+  // String response = await NetworkService.PATCH(NetworkService.apiPost + post.id.toString(), NetworkService.headers, {'title': "salom"});
+  String response = await NetworkService.DELETE(NetworkService.apiPost + post.id.toString(), NetworkService.headers);
+
+  print("delete: $response");
 }
 
 
