@@ -3,10 +3,12 @@ import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:network_service/model/album_model.dart';
 import 'package:network_service/model/post_model.dart';
+import 'package:network_service/model/product_model.dart';
 
 class NetworkService {
   // URL
-  static const String baseUrl = "jsonplaceholder.typicode.com";
+  // static const String baseUrl = "jsonplaceholder.typicode.com";
+  static const String baseUrl = "dummyjson.com";
 
   // HEADERS
   static Map<String, String> headers = {
@@ -18,6 +20,7 @@ class NetworkService {
   static const String apiPost = "/posts/"; // {id}
   static const String apiAlbums = "/albums";
   static const String apiAlbum = "/albums/"; // {id}
+  static const String apiProduct = "/products/"; // {id}
 
 
   // METHODS
@@ -88,5 +91,11 @@ class NetworkService {
     Map<String, dynamic> json = jsonDecode(body);
     Album albums = Album.fromJson(json);
     return albums;
+  }
+
+  static Product parseProduct(String body) {
+    Map<String, dynamic> json = jsonDecode(body);
+    Product product = Product.fromJson(json);
+    return product;
   }
 }
